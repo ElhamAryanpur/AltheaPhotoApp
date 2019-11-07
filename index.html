@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="./scripts/lib/Caman/caman.full.min.js"></script>
+    
+    <script src="./scripts/js/jquery.js"></script>
+    <script src="./scripts/js/jquery-ui/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="./scripts/js/jquery-ui/jquery-ui.min.css">
+
+    <link rel="stylesheet" href="./scripts/css/index.css">
+
+    <title>Althea's Photo App</title>
+</head>
+<body>
+    <div id="MENU">
+        <span class="menu-button" id="menu-upload" onclick="openUploadDialog()">UPLOAD</span>
+    </div>
+
+    <canvas id="renderCanvas">YOUR BROWSER DOES NOT SUPPORT CANVAS</canvas>
+
+<!---------------------------------------------------------------------------------------------->
+<div id="dialog-upload">
+    <input type="file" name="file" id="file"><br><br>
+    <button id="dialog-upload-button">UPLOAD</button>
+</div>
+<!---------------------------------------------------------------------------------------------->
+
+<script src="./scripts/js/index.js"></script>
+</body>
+</html>
