@@ -17,15 +17,18 @@
 </head>
 <body>
     <div id="MENU">
-        <span class="menu-button" id="menu-upload" onclick="openUploadDialog()">UPLOAD</span>
+        <a class="menu-button" id="menu-upload"
+        onclick="openUploadDialog()">UPLOAD</a>
+        <a class="menu-button" id="menu-showCanvas">RENDER-CANVAS</a>
     </div>
 
-    <canvas id="renderCanvas">YOUR BROWSER DOES NOT SUPPORT CANVAS</canvas>
-
 <!---------------------------------------------------------------------------------------------->
-<div id="dialog-upload">
-    <input type="file" name="file" id="file"><br><br>
+<div id="dialog-upload" title="Upload Image">
+    <input type="file" name="file" id="input"><br><br>
     <button id="dialog-upload-button">UPLOAD</button>
+</div>
+<div id="renderDiv" title="Render Canvas">
+    <canvas id="renderCanvas">YOUR BROWSER DOES NOT SUPPORT CANVAS</canvas>
 </div>
 <!---------------------------------------------------------------------------------------------->
 

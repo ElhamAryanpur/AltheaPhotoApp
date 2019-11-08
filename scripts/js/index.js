@@ -20,7 +20,55 @@ $("#dialog-upload").dialog({
     width: dialogUploadSize(),
 });
 
+$("#renderDiv").dialog({
+    height: window.innerHeight - 150,
+    width: window.innerWidth - 150,
+});
+
 function openUploadDialog(){
     $("#dialog-upload").dialog("open");
 }
 
+var url;
+var firstTime = true;
+
+var input = document.getElementById('input');
+input.addEventListener('change', handleFiles);
+
+function handleFiles(e) {
+    url = URL.createObjectURL(e.target.files[0]);
+}
+
+$("#dialog-upload-button").click(function(){
+    var canvasDiv = document.getElementById("renderDiv");
+    var childs = canvasDiv.childNodes;
+    var canvas;
+
+    for (var i = 0; i < childs.length; i++){
+        if (childs[i].id == "renderCanvas"){
+            canvas = childs[i];
+        }
+    }
+
+    if (firstTime == false){
+        canvasDiv.removeChild(canvas);
+        var canvas = document.createElement("canvas");
+        canvas.id = "renderCanvas";
+        canvasDiv.appendChild(canvas);
+
+    } else {
+        firstTime = false;
+    }
+    
+
+    Caman("#renderCanvas", url, function () {
+        // manipulate image here
+        this.brightness(5).render();
+    });
+
+    $("#dialog-upload").dialog("close");
+});
+
+$("#menu-showCanvas").click(function(){
+    $("#renderDiv").dialog("open");
+});
